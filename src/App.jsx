@@ -43,7 +43,7 @@ function App() {
     <>
       
       <div className="flex flex-col gap-5 p-5">
-      <div className="bg-fixed bg-[url('https://res.cloudinary.com/dc367rgig/image/upload/v1706872093/takeaway_sticker_dm4scg.png')] h-screen bg-no-repeat bg-center bg-contain"></div>
+      <div className="bg-fixed bg-[url('https://res.cloudinary.com/dc367rgig/image/upload/v1706872093/takeaway_sticker_dm4scg.png')] h-screen bg-no-repeat p-2 m-2 bg-center bg-contain"></div>
         <Menu onAddToOrder={handleAddToOrder} />
         <Customer onCustomerDataChange={handleCustomerDataChange} />
         <OrderSummary
