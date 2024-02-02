@@ -45,7 +45,7 @@ const Menu = ({ onAddToOrder }) => {
           ))}
         </div>
         <button
-          className="toggle-button md:hidden font-gamb w-fit transition-transform hover:scale-95 md:text-md font-medium text-center text-white p-5 rounded-xl bg-[#00a550]"
+          className="toggle-button md:hidden font-gamb w-fit transition-transform hover:scale-95 md:text-md font-medium text-center text-white p-2 md:p-5 rounded-xl bg-[#00a550]"
           onClick={showDrawer}
         >
           Menu
