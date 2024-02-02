@@ -30,8 +30,8 @@ const Customer = ({ onCustomerDataChange }) => {
         Customer Information
       </h2>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-row justify-around gap-2 p-2">
-          <label className="flex flex-row items-center w-1/2 gap-2">
+        <div className="flex flex-col md:flex-row justify-around gap-2 p-2">
+          <label className="flex flex-row items-center w-full md:w-1/2  gap-2">
             <p className="md:text-2xl text-lg font-medium font-gamb">Name:</p>
             <input
               className="border-2 text-[#00a550] rounded-md border-[#00a650] focus:ring-2 focus:ring-[#00a550] outline-none w-1/2 px-2 py-1 "
@@ -42,7 +42,7 @@ const Customer = ({ onCustomerDataChange }) => {
             />
           </label>
 
-          <label className="flex my-2 items-center w-1/2 flex-row gap-2">
+          <label className="flex my-2 items-center w-full md:w-1/2 flex-row gap-2">
             <p className="md:text-2xl text-lg whitespace-nowrap  font-medium font-gamb">
               Phone #:
             </p>
@@ -55,14 +55,15 @@ const Customer = ({ onCustomerDataChange }) => {
             />
           </label>
         </div>
-        <div className="flex flex-row justify-between items-center gap-2 p-2">
-          <label className="flex my-2 items-center w-1/2 flex-row gap-2">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-2 p-2">
+          <label className="flex flex-row items-center w-full md:w-1/2  gap-2">
             <p className="md:text-2xl text-lg whitespace-nowrap  font-medium font-gamb">
               Address:
             </p>
             <textarea
-              className="border-2 text-[#00a550] rounded-md border-[#00a650] focus:ring-2 focus:ring-[#00a550] outline-none w-1/2 px-2 py-1 "
+              className="border-2 text-[#00a550] rounded-md border-[#00a650] focus:ring-2 focus:ring-[#00a550] outline-none w-full md:w-1/2  px-2 py-1 "
               type="text"
+              rows={3}
               value={customerAddress}
               placeholder="Enter Address...."
               onChange={(e) => setCustomerAddress(e.target.value)}
@@ -78,7 +79,7 @@ const Customer = ({ onCustomerDataChange }) => {
               checked={paymentOption === "online"}
               onChange={() => setPaymentOption("online")}
             />
-            <span className="md:text-xl text-md font-medium font-serif">
+            <span className="md:text-xl text-sm font-medium font-serif">
               Online Payment
             </span>
 
@@ -89,7 +90,7 @@ const Customer = ({ onCustomerDataChange }) => {
               checked={paymentOption === "cod"}
               onChange={() => setPaymentOption("cod")}
             />
-            <span className="md:text-xl items-center text-md font-medium font-serif">
+            <span className="md:text-xl items-center text-sm font-medium font-serif">
               Cash on Delivery (COD)
             </span>
           </div>

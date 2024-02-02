@@ -45,7 +45,7 @@ const Menu = ({ onAddToOrder }) => {
           ))}
         </div>
         <button
-          className="toggle-button md:hidden font-gamb transition-transform hover:scale-95 text-md text-xl font-semibold text-center text-white p-5 rounded-xl bg-[#00a550]"
+          className="toggle-button md:hidden font-gamb w-fit transition-transform hover:scale-95 md:text-md font-medium text-center text-white p-5 rounded-xl bg-[#00a550]"
           onClick={showDrawer}
         >
           Menu
@@ -83,7 +83,7 @@ const Menu = ({ onAddToOrder }) => {
             </h3>
             {selectedCategory === "Pizza" && (
               <div>
-                <h4 className="font-gamb text-lg bg-[#00a650] p-2 md:text-xl font-normal text-center hover:scale-95 transition-transform rounded-md  text-[#fff] py-2">
+                <h4 className="font-gamb text-base bg-[#00a650] p-2 md:text-xl font-normal text-center hover:scale-95 transition-transform rounded-md  text-[#fff] py-2">
                   Small
                 </h4>
                 <div className="grid grid-cols-2 grid-flow-row-dense">
