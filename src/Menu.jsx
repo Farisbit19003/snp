@@ -59,21 +59,21 @@ const Menu = ({ onAddToOrder }) => {
         open={drawerVisible}
       >
         {Object.keys(menuData).map((category) => (
-          <div
-            key={category}
-            className={`cursor-pointer ${
-              selectedCategory === category ? "bg-[#00a650] text-white" : ""
-            }`}
-            onClick={() => {
-              handleCategoryClick(category);
-              onClose(); // Close the drawer after clicking a category
-            }}
-          >
-            <h3 className="font-gamb md:text-2xl font-semibold text-[#00a650] py-2">
-              {category}
-            </h3>
-          </div>
-        ))}
+            <div
+              key={category}
+              className={`cursor-pointer transition-transform hover:scale-95 px-3 rounded-xl mr-5 ${
+                selectedCategory === category ? "bg-[#00a650] text-white" : ""
+              }`}
+              onClick={() => {
+                handleCategoryClick(category);
+                onClose(); // Close the drawer after clicking a category
+              }}
+            >
+              <h3 className="font-gamb md:text-2xl font-semibold py-2">
+                {category}
+              </h3>
+            </div>
+          ))}
       </Drawer>
       <div className="w-3/4 p-4">
         {selectedCategory && (

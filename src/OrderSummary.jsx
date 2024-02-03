@@ -191,11 +191,11 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
       <div className="flex justify-center items-center">
         <table
           id="orderSummaryTable"
-          className="w-1/2 justify-center border-collapse"
+          className="w-1/2 justify-center rounded-3xl shadow-2xl border-collapse"
         >
           <thead>
-            <tr className="font-gamb text-xl">
-              <th className="border-4 border-[#00a650] p-2">Item</th>
+            <tr className="font-gamb md:text-xl">
+              <th className="border-4 border-[#00a650]  p-2">Item</th>
               <th className="border-4 border-[#00a650] p-2">Price</th>
               <th className="border-4 border-[#00a650] p-2">Quantity</th>
               <th className="border-4 actions-column border-[#00a650] p-2">
@@ -206,16 +206,16 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
           <tbody>
             {orders.map((orderItem, index) => (
               <tr key={index} className="">
-                <td className="border-4 font-serif border-[#00a650] p-2">
+                <td className="border-4 font-serif border-[#00a650] md:p-2 p-1">
                   {orderItem.name}
                 </td>
-                <td className="border-4 font-serif  text-end border-[#00a650] p-2">
+                <td className="border-4 font-serif  text-end border-[#00a650] md:p-2 p-1">
                   Rs.{orderItem.price}/-
                 </td>
-                <td className="border-4 font-serif  text-end border-[#00a650] p-2">
+                <td className="border-4 font-serif  text-end border-[#00a650] md:p-2 p-1">
                   {orderItem.quantity}/-
                 </td>
-                <td className="border-4 actions-column text-center border-[#00a650] p-2">
+                <td className="border-4 actions-column text-center border-[#00a650] md:p-2 p-1">
                   <button
                     className="text-green-600 p-2 hover:scale-95 transition-transform md:text-2xl"
                     onClick={() => onIncreaseQuantity(index)}
@@ -267,7 +267,7 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
       </div>
       <div className="flex justify-between m-2 gap-2 p-2 items-center">
         <button
-          className="bg-[#00a550] text-[#fff] font-semibold transition-transform hover:scale-95 w-full text-lg rounded-xl font-gamb p-3 md:text-2xl"
+          className="bg-[#00a550] text-[#fff] font-semibold transition-transform hover:scale-95 w-full md:text-lg rounded-xl font-gamb md:p-3 p-1"
           onClick={handlePrintOrderSummary}
         >
           Print Order Summary
