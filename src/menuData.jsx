@@ -59,6 +59,12 @@ const menuData = {
     { name: "Seasonal Juices", price: 350 },
     { name: "Shakes", price: 350 },
     { name: "NR 1.5L", price: 350 },
+    { name: "Pepsi Can", price: 160 },
+    { name: "7up Can", price: 160 },
+    { name: "Pepsi Can Diet", price: 160 },
+    { name: "7up Can Diet", price: 160 },
+    { name: "Dew Can", price: 160 },
+    { name: "Marinda Can", price: 160 },
   ],
   AddsOn: [{ name: "Cheese Slice", price: 80 }],
   Sauces: [
