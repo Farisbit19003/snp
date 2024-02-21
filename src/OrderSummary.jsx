@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { HiMinusCircle, HiPlusCircle, HiTrash } from "react-icons/hi";
 
 const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
   const [deliveryCharges, setDeliveryCharges] = useState(0);
   const [includeDeliveryCharges, setIncludeDeliveryCharges] = useState(false);
+  const [taxRate, setTaxRate] = useState(0.16); // Default tax rate is 16%
 
   const onDeleteItem = (index) => {
     const updatedOrders = [...orders];
@@ -41,14 +41,14 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
 
   const calculateTax = () => {
     const subtotal = calculateSubtotal();
-    return (subtotal * 0.16).toFixed(2);
+    return (subtotal * taxRate).toFixed(0);
   };
 
   const calculateTotal = () => {
     const subtotal = calculateSubtotal();
     const tax = parseFloat(calculateTax());
     const total = subtotal + tax + (includeDeliveryCharges ? 200 : 0);
-    return total.toFixed(2);
+    return total.toFixed(0);
   };
 
   const handleCheckboxChange = () => {
@@ -71,13 +71,15 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
     }
     setOrders(updatedOrders);
   };
+
   const handlePrintOrderSummary = () => {
     // Get the current date and time
     const currentDate = new Date().toLocaleDateString();
     const currentTime = new Date().toLocaleTimeString();
 
     // Exclude delivery charges checkbox from the printed content
-    const tableContent = document.getElementById("orderSummaryTable").outerHTML;
+    const tableContent = document.getElementById("orderSummaryTable")
+      .outerHTML;
     const customer = document.getElementById("customer").outerHTML;
 
     const contentToPrint = customer + tableContent;
@@ -173,12 +175,14 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
           Customer Information
         </h3>
         <p className="text-[#00a550] flex flex-row gap-2 text-md font-sans font-semibold">
-          {customerData.customerName} || {customerData.customerPhoneNumber} || {customerData.paymentOption}
+          {customerData.customerName} || {customerData.customerPhoneNumber} ||{" "}
+          {customerData.paymentOption}
         </p>
         <p className="text-[#00a550] text-md font-sans font-semibold">
           {customerData.customerAddress}
         </p>
       </div>
+      <div className="flex flex-col gap-2">
       <label className="text-md font-sans font-semibold">
         Include Delivery Charges:
         <input
@@ -188,6 +192,18 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
           onChange={handleCheckboxChange}
         />
       </label>
+      <label className="text-md font-sans font-semibold">
+        Tax Rate:
+        <select
+          className="text-[#00a650] ml-2"
+          value={taxRate}
+          onChange={(e) => setTaxRate(parseFloat(e.target.value))}
+        >
+          <option className="text-[#00a650]" value={0.16}>16%</option>
+          <option className="text-[#00a650]" value={0.05}>5%</option>
+        </select>
+      </label>
+      </div>
       <div className="flex justify-center items-center">
         <table
           id="orderSummaryTable"
@@ -244,7 +260,7 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
                 colSpan="4"
               >
                 <div> Subtotal: Rs. {calculateSubtotal()}/- </div>
-                <div> Tax (16%): Rs. {calculateTax()}/-</div>
+                <div> Tax ({(taxRate * 100).toFixed(0)}%): Rs. {calculateTax()}/-</div>
                 <div>
                   Delivery Charges: Rs. {includeDeliveryCharges ? 200 : 0}/-
                 </div>
