@@ -1,10 +1,10 @@
 const menuData = {
   Pizza: {
     small: [
-      { name: "Alfredo- (S)", price: 499 },
-      { name: "Fajita- (S)", price: 499 },
-      { name: "Tikka- (S)", price: 499 },
-      { name: "Veggie- (S)", price: 499 },
+      { name: "Alfredo - (S)", price: 499 },
+      { name: "Fajita - (S)", price: 499 },
+      { name: "Tikka - (S)", price: 499 },
+      { name: "Veggie - (S)", price: 499 },
     ],
     medium: [
       { name: "Alfredo - (M)", price: 899 },
@@ -13,10 +13,10 @@ const menuData = {
       { name: "Veggie - (M)", price: 899 },
     ],
     large: [
-      { name: "Alfredo- (L)", price: 1399 },
-      { name: "Fajita- (L)", price: 1399 },
-      { name: "Tikka- (L)", price: 1399 },
-      { name: "Veggie- (L)", price: 1399 },
+      { name: "Alfredo - (L)", price: 1399 },
+      { name: "Fajita - (L)", price: 1399 },
+      { name: "Tikka - (L)", price: 1399 },
+      { name: "Veggie - (L)", price: 1399 },
     ],
   },
   Sandwiches: [
@@ -57,9 +57,11 @@ const menuData = {
 
   Beverages: [
     { name: "Apple Juice", price: 350 },
-    { name: "Banana Juice", price: 350 },
+    { name: "Apple Shake", price: 350 },
+    { name: "Banana Juice", price: 350 },   
+     { name: "Banana Shake", price: 350 },
     { name: "Stawberry Juice", price: 350 },
-    { name: "Banana Shake", price: 350 },
+    { name: "Stawberry Shake", price: 350 },
     { name: "Pomegrante Juice", price: 350 },
     { name: "Mango Shakes", price: 350 },
     { name: "NR 1.5L", price: 350 },
