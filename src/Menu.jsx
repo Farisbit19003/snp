@@ -125,7 +125,7 @@ const Menu = ({ onAddToOrder }) => {
               </div>
             )}
             {selectedCategory === "Deals" && (
-              <div className="grid grid-cols-1 grid-flow-row-dense">
+              <div className="grid grid-cols-2 grid-flow-row-dense">
                 {menuData[selectedCategory].map((deal, index) => (
                   <div key={index} className="mb-4 p-4 border rounded-lg">
                     <h4 className="font-gamb text-lg font-semibold text-[#00a650]">
