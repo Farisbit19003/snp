@@ -14,9 +14,8 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
 
   useEffect(() => {
     const subtotal = calculateSubtotal();
-    const tax = parseFloat(calculateTax());
     const deliveryChargesValue = includeDeliveryCharges ? 200 : 0;
-    const grandTotal = subtotal + tax + deliveryChargesValue;
+    const grandTotal = subtotal +  deliveryChargesValue;
 
     // Store order summary in local storage
     localStorage.setItem(
@@ -26,7 +25,6 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
         customerData,
         deliveryCharges: deliveryChargesValue,
         subtotal,
-        tax,
         grandTotal,
       })
     );
@@ -39,15 +37,10 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
     );
   };
 
-  const calculateTax = () => {
-    const subtotal = calculateSubtotal();
-    return (subtotal * taxRate).toFixed(0);
-  };
 
   const calculateTotal = () => {
     const subtotal = calculateSubtotal();
-    const tax = parseFloat(calculateTax());
-    const total = subtotal + tax + (includeDeliveryCharges ? 200 : 0);
+    const total = subtotal +  (includeDeliveryCharges ? 200 : 0);
     return total.toFixed(0);
   };
 
@@ -192,17 +185,6 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
           onChange={handleCheckboxChange}
         />
       </label>
-      <label className="text-md font-sans font-semibold">
-        Tax Rate:
-        <select
-          className="text-[#00a650] ml-2"
-          value={taxRate}
-          onChange={(e) => setTaxRate(parseFloat(e.target.value))}
-        >
-          <option className="text-[#00a650]" value={0.16}>16%</option>
-          <option className="text-[#00a650]" value={0.05}>5%</option>
-        </select>
-      </label>
       </div>
       <div className="flex justify-center items-center">
         <table
@@ -260,7 +242,6 @@ const OrderSummary = ({ orders, setOrders, customerData, onNewOrder }) => {
                 colSpan="4"
               >
                 <div> Subtotal: Rs. {calculateSubtotal()}/- </div>
-                <div> Tax ({(taxRate * 100).toFixed(0)}%): Rs. {calculateTax()}/-</div>
                 <div>
                   Delivery Charges: Rs. {includeDeliveryCharges ? 200 : 0}/-
                 </div>
