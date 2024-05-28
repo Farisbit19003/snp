@@ -125,9 +125,9 @@ const Menu = ({ onAddToOrder }) => {
               </div>
             )}
             {selectedCategory === "Deals" && (
-              <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 grid-flow-row-dense">
+              <div className="grid md:grid-cols-3 sm:grid-cols-2 p-2 grid-cols-1 grid-flow-row-dense">
                 {menuData[selectedCategory].map((deal, index) => (
-                  <div key={index} className="mb-4 p-4 border rounded-lg">
+                  <div key={index} className="mb-4 p-4 border border-[#00a650] rounded-lg">
                     <h4 className="font-gamb text-lg font-semibold text-[#00a650]">
                       {deal.name} - {deal.price} PKR
                     </h4>
